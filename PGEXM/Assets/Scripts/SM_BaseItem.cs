@@ -8,31 +8,37 @@ public enum Wheel { Wheel1, Wheel2, Wheel3 };
 [RequireComponent(typeof(Image))]
 public class SM_BaseItem : MonoBehaviour, SM_Items {
     [SerializeField]
+    public bool stopping = false;
+    [SerializeField]
     private static float _speed;
     [SerializeField]
     private Wheel baseWheel;
-    private Image baseImage;
+    [SerializeField]
+    public SM_PanelData curPanel;
+    public Image baseImage;
     void Start() {
         Init();
     }
     public void Init() {
-        Menu_Manager.Test += Stop;
-        _speed = 20;
+        _speed = 10;
         baseImage = GetComponent<Image>();
     }
 
     public void FixedUpdate() {
-        Move(Vector3.down * _speed);
+        if(!stopping)
+            Move(Vector3.down * _speed);
     }
     public void Move(Vector3 speed) {
         baseImage.rectTransform.Translate(speed);
         if (baseImage.rectTransform.localPosition.y <= -300)
+        {
+            curPanel = SM_Panels.instance.PanelSpawn(curPanel, GetComponentInParent<SM_Wheel>());
+            baseImage.sprite = curPanel.image;
             baseImage.transform.localPosition = new Vector3(0, 300, 0);
+        }
     }
-    public void Stop(Wheel wheel) {
-        Debug.Log("wheel " + wheel);
-        if (wheel.ToString() != baseWheel.ToString())
-            return;
+    public void Stop() {
+
         StartCoroutine("StopWheel", 10);
     }
     IEnumerator StopWheel(float time) {
