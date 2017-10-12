@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/pokemon_select.unity
+    guid: 2f2be0bcf1728974dba7a41925951d56
+  - enabled: 1
+    path: Assets/Scenes/battle.unity
+    guid: 41d58ebec0677cd45bbfb85e9368906b

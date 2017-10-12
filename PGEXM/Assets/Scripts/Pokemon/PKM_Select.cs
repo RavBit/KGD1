@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PKM_Select : MonoBehaviour {
     public GameObject[] List;
@@ -28,11 +28,20 @@ public class PKM_Select : MonoBehaviour {
         }
         for (int i = 0; i < Pokemon_Collections.instance.Pokemon.Count; i++) {
             GameObject go = Instantiate(ListItem, Vector3.zero, transform.rotation);
-            Debug.Log("Init owner: " + Pokemon_Collections.instance.Pokemon[i].PKM_Owner);
             go.GetComponent<PKM_ListItem>().index = i;
             go.transform.parent = List[(int)Pokemon_Collections.instance.Pokemon[i].PKM_Owner].transform;
             go.GetComponent<PKM_ListItem>().Init(i,Pokemon_Collections.instance.Pokemon[i].Sprite, Pokemon_Collections.instance.Pokemon[i].Name);
         }
+    }
+    public void StartGame() {
+        int count = 0;
+        foreach(Pokemon pkm in Pokemon_Collections.instance.Pokemon) {
+            if (pkm.PKM_Owner == PKM_Owner.Player)
+                count++;
+        }
+        if (count == 0)
+            return;
+        SceneManager.LoadScene("battle");
     }
 
 }

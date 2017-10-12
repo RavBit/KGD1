@@ -20,7 +20,7 @@ public class SM_Wheel : MonoBehaviour {
 
     void InitPanels()
     {
-        GameObject go =Instantiate(sm_panel, Vector3.zero, Quaternion.identity);
+        GameObject go = Instantiate(sm_panel, Vector3.zero, Quaternion.identity);
         GameObject go1 = Instantiate(sm_panel, Vector3.zero , Quaternion.identity);
         GameObject go2 = Instantiate(sm_panel, Vector3.zero, Quaternion.identity);
         GameObject go3 = Instantiate(sm_panel, Vector3.zero, Quaternion.identity);
@@ -38,7 +38,6 @@ public class SM_Wheel : MonoBehaviour {
         go3.transform.localPosition = new Vector3(0, 200, 0);
         go4.transform.localPosition = new Vector3(0, 300, 0);
         go5.transform.localPosition = new Vector3(0, 400, 0);
-        //go.transform.parent =  transform;
     }
 
     public bool DuplicateWheelCheck(SM_PanelData spawnpanel)

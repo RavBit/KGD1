@@ -26,7 +26,6 @@ public class SM_Panels : MonoBehaviour {
                 return panel;
 
         }
-
         return cur;
     }
 }
