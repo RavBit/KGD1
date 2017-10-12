@@ -20,18 +20,25 @@ public class SM_Wheel : MonoBehaviour {
 
     void InitPanels()
     {
-        GameObject go =Instantiate(sm_panel, new Vector3(0, 100, 0), Quaternion.identity);
-        GameObject go1 = Instantiate(sm_panel, new Vector3(0, 200, 0), Quaternion.identity);
-        GameObject go2 = Instantiate(sm_panel, new Vector3(0, 300, 0), Quaternion.identity);
-        GameObject go3 = Instantiate(sm_panel, new Vector3(0, 400, 0), Quaternion.identity);
-        GameObject go4 = Instantiate(sm_panel, new Vector3(0, 500, 0), Quaternion.identity);
-        GameObject go5 = Instantiate(sm_panel, new Vector3(0, 600, 0), Quaternion.identity);
-        go.transform.parent =  transform;
+        GameObject go =Instantiate(sm_panel, Vector3.zero, Quaternion.identity);
+        GameObject go1 = Instantiate(sm_panel, Vector3.zero , Quaternion.identity);
+        GameObject go2 = Instantiate(sm_panel, Vector3.zero, Quaternion.identity);
+        GameObject go3 = Instantiate(sm_panel, Vector3.zero, Quaternion.identity);
+        GameObject go4 = Instantiate(sm_panel, Vector3.zero, Quaternion.identity);
+        GameObject go5 = Instantiate(sm_panel, Vector3.zero, Quaternion.identity);
+        go.transform.parent = transform;
         go1.transform.parent = transform;
         go2.transform.parent = transform;
         go3.transform.parent = transform;
         go4.transform.parent = transform;
         go5.transform.parent = transform;
+        go1.transform.localPosition = new Vector3(0, 500, 0);
+        go1.transform.localPosition = new Vector3(0, 0, 0);
+        go2.transform.localPosition = new Vector3(0, 100, 0);
+        go3.transform.localPosition = new Vector3(0, 200, 0);
+        go4.transform.localPosition = new Vector3(0, 300, 0);
+        go5.transform.localPosition = new Vector3(0, 400, 0);
+        //go.transform.parent =  transform;
     }
 
     public bool DuplicateWheelCheck(SM_PanelData spawnpanel)

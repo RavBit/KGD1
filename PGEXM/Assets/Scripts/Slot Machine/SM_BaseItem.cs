@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Wheel { Wheel1, Wheel2, Wheel3 };
-
 [RequireComponent(typeof(Image))]
 public class SM_BaseItem : MonoBehaviour, SM_Items {
     [SerializeField]
     public bool stopping = false;
     [SerializeField]
     private static float _speed;
-    [SerializeField]
-    private Wheel baseWheel;
     [SerializeField]
     public SM_PanelData curPanel;
     public Image baseImage;
