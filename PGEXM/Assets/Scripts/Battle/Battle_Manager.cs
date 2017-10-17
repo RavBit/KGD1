@@ -10,7 +10,9 @@ public enum Battle_State
 }
 public class Battle_Manager : MonoBehaviour {
     public static Battle_Manager instance;
-
+    //Actions
+    public delegate void StartGamble(bool toggle);
+    public static event StartGamble InitGamble;
     public Battle_State _currentstate = Battle_State.Turn;
 
     [SerializeField]
@@ -26,25 +28,24 @@ public class Battle_Manager : MonoBehaviour {
         ChangeState(Battle_State.Turn);
     }
 
-    void ChangeState(Battle_State _newstate)
+    public void ChangeState(Battle_State _newstate)
     {
         _currentstate = _newstate;
         switch (_newstate)
         {
             case Battle_State.Turn:
-                Debug.Log("Test");
-                StartTurn();
+                TurnToggle(true);
                 break;
             case Battle_State.Gamble:
-                Debug.Log("Gamble");
+                TurnToggle(false);
+                InitGamble(true);
                 break;
         }
     }
 
-    void StartTurn()
+    void TurnToggle(bool toggle)
     {
-        //StartCoroutine(Timer(3));
-        Turn_Menu.SetActive(true);
+        Turn_Menu.SetActive(toggle);
     }
 
    /*IEnumerator Timer(int time)

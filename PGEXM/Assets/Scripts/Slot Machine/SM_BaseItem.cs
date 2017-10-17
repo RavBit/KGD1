@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Image))]
 public class SM_BaseItem : MonoBehaviour, SM_Items {
+
+    //Event
     [SerializeField]
     public bool stopping = false;
     [SerializeField]
-    private static float _speed;
+    public static float _speed;
     [SerializeField]
     public SM_PanelData curPanel;
     public Image baseImage;
@@ -28,8 +30,11 @@ public class SM_BaseItem : MonoBehaviour, SM_Items {
         baseImage.rectTransform.Translate(speed);
         if (baseImage.rectTransform.localPosition.y <= -300)
         {
-            curPanel = SM_Panels.instance.PanelSpawn(curPanel, GetComponentInParent<SM_Wheel>());
-            baseImage.sprite = curPanel.image;
+            if (!stopping)
+            {
+                curPanel = SM_Panels.instance.PanelSpawn(curPanel, GetComponentInParent<SM_Wheel>());
+                baseImage.sprite = curPanel.image;
+            }
             baseImage.transform.localPosition = new Vector3(0, 300, 0);
         }
     }
@@ -46,3 +51,4 @@ public class SM_BaseItem : MonoBehaviour, SM_Items {
         Debug.Log("STOPPED");
     }
 }
+

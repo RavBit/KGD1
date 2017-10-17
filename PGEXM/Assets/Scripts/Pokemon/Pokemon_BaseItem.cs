@@ -12,6 +12,7 @@ public class Pokemon_BaseItem {
     public Type Type;
     public int Health;
     public Sprite Sprite;
+    public Sprite BackSprite;
     [Space(3)]
     [Header("Attack settings:")]
     public List<PKM_Attack> attacks = new List<PKM_Attack>(4);

@@ -9,6 +9,8 @@ public class SM_Wheel : MonoBehaviour {
     [Space(10)]
     public List<SM_Item> sm_items = new List<SM_Item>();
 
+    //Event
+
     void Start()
     {
         InitPanels();
@@ -32,7 +34,7 @@ public class SM_Wheel : MonoBehaviour {
         go3.transform.parent = transform;
         go4.transform.parent = transform;
         go5.transform.parent = transform;
-        go1.transform.localPosition = new Vector3(0, 500, 0);
+        go.transform.localPosition = new Vector3(0, 500, 0);
         go1.transform.localPosition = new Vector3(0, 0, 0);
         go2.transform.localPosition = new Vector3(0, 100, 0);
         go3.transform.localPosition = new Vector3(0, 200, 0);
@@ -57,15 +59,39 @@ public class SM_Wheel : MonoBehaviour {
 
     public void StopWheel()
     {
-        foreach (SM_Item panel in sm_items)
+        SM_Item item = null;
+        if (!SM_WinCalculator.FirstSpin)
         {
-            panel.stopping = true;
+            SM_WinCalculator.FirstSpin = true;
+            System.Random rand = new System.Random();
+            int r = rand.Next(sm_items.Count);
+            item = sm_items[r];
         }
-        System.Random rand = new System.Random();
-        int r = rand.Next(sm_items.Count);
-        SM_Item item =  sm_items[r];
-        Debug.Log("sm: " + sm_items[r].curPanel.name);
-        sm_items[r].baseImage.rectTransform.DOLocalMove(new Vector3(0, 0, 0), 1);
+        else
+        {
+            Debug.Log("ELSE");
+            item = SM_WinCalculator.CheckString(GetComponent<SM_Wheel>());
+        }
+        StartCoroutine("StopWheels", item);
+
+    }
+
+    IEnumerator StopWheels(SM_Item curitem)
+    {
+        SM_WinCalculator.WinCalculator(curitem);
+        while (curitem.transform.localPosition.y != 0)
+        {
+            Debug.Log("check for " + curitem.curPanel.name);
+            yield return new WaitForSeconds(0.01f);
+        }
+        if (curitem.transform.localPosition.y == 0)
+        {
+            foreach (SM_Item panel in sm_items)
+            {
+                Debug.Log("check done");
+                panel.stopping = true;
+            }
+        }
 
     }
 }

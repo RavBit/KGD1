@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4757874675885422}
+  - component: {fileID: 114143757057011930}
   - component: {fileID: 114795032549023974}
   m_Layer: 0
   m_Name: Panel_Manager
@@ -40,6 +41,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114143757057011930
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1634740772642898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce6e488bddc0f5d418d52209449f9d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114795032549023974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -51,14 +63,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140e51f3471757d418a2db309ef7363c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
   paneldata:
-  - name: 
-    spawnrate: 10
-    image: {fileID: 0}
-  - name: 
-    spawnrate: 10
-    image: {fileID: 0}
-  - name: 
-    spawnrate: 10
-    image: {fileID: 0}
+  - name: Panel Cool
+    spawnrate: 20
+    unique: 0
+    image: {fileID: 21300000, guid: e1077b21c6e32884d8f63028d8e9565f, type: 3}
+  - name: Panel Stressed
+    spawnrate: 30
+    unique: 0
+    image: {fileID: 21300000, guid: 839fa3b2b4c9dcc408fe625b8bad119f, type: 3}
+  - name: Panel Sad
+    spawnrate: 20
+    unique: 0
+    image: {fileID: 21300000, guid: 7a0859fda0aca954f9656dac928eaf6e, type: 3}
+  - name: Panel Suprise
+    spawnrate: 15
+    unique: 0
+    image: {fileID: 21300000, guid: 9f286ae2d446527419077d5e21047dab, type: 3}
+  - name: Panel Angry
+    spawnrate: 20
+    unique: 0
+    image: {fileID: 21300000, guid: cc8f75f8f358307418a7934d7da028be, type: 3}
+  - name: Panel Happy
+    spawnrate: 20
+    unique: 0
+    image: {fileID: 21300000, guid: 82e4a931d35a5ef428f34f813577d500, type: 3}
+  - name: Panel Laughing
+    spawnrate: 20
+    unique: 0
+    image: {fileID: 21300000, guid: 0801a9454df3d8747910ce056b668197, type: 3}
+  - name: Panel Evil
+    spawnrate: 7.6
+    unique: 0
+    image: {fileID: 21300000, guid: 3705b18ca02760f4598d683960fbea77, type: 3}
+  - name: Panel Girl
+    spawnrate: 40
+    unique: 0
+    image: {fileID: 21300000, guid: 82b787f1d668e6949a8b2ed5fc723269, type: 3}
+  - name: Panel Crying
+    spawnrate: 5
+    unique: 0
+    image: {fileID: 21300000, guid: 598be3b4fa92f26488e4eba81d9da691, type: 3}
