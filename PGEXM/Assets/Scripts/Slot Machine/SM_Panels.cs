@@ -16,7 +16,6 @@ public class SM_Panels : MonoBehaviour {
             instance = this;
         DontDestroyOnLoad(transform.gameObject);
     }
-
     public SM_PanelData PanelSpawn(SM_PanelData cur, SM_Wheel wheelcheck)
     {
         foreach (SM_PanelData panel in paneldata)

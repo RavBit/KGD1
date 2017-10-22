@@ -16,13 +16,12 @@ public class Battle_Menu_Manager : MonoBehaviour
     public Pokemon CurPokemon;
     public GameObject Battle_Menu;
     public Image Cur_Pokemon_Back;
-    public Turn_Menu Turn_Menu = Turn_Menu.None;
-    public static System.Action<Turn_Menu> SwitchTurnMenu; 
+    public Turn_Menu Turn_Menu = Turn_Menu.None; 
     void Awake()
     {
         CurPokemon = Pokemon_Collections.instance.Pokemon[0];
         Cur_Pokemon_Back.sprite = CurPokemon.BackSprite;
-        SwitchTurnMenu += SetTurnMenu;
+        Event_Manager.SwitchTurnState += SetTurnMenu;
     }
     void SetTurnMenu(Turn_Menu cur_menu)
     {

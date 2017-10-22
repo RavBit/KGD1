@@ -7,7 +7,7 @@ public class Slot_Machine_Manager : MonoBehaviour {
     public void Start()
     {
         BaseObject.SetActive(false);
-        Battle_Manager.InitGamble += ToggleSM;
+        Event_Manager.InitGamble += ToggleSM;
     }
     
     public void ToggleSM(bool toggle)

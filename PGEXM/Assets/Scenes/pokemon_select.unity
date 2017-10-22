@@ -390,7 +390,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 92414194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -750, y: -150, z: 0}
+  m_LocalPosition: {x: -750, y: 150, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2074319014}
@@ -822,62 +822,76 @@ MonoBehaviour:
     Type: 2
     Health: 100
     Sprite: {fileID: 21300000, guid: a59248e608cf0664e9c2ce64562ed404, type: 3}
+    BackSprite: {fileID: 21300000, guid: 926878e75ee7b4a4686b0c5be9195641, type: 3}
     attacks:
     - name: Water gun
       description: 
       strength: 27.6
+      icon: {fileID: 0}
       typeattack: 2
     - name: Slam
       description: 
       strength: 40
+      icon: {fileID: 0}
       typeattack: 3
     - name: Surf
       description: 
       strength: 60
+      icon: {fileID: 0}
       typeattack: 2
     - name: Tackle
       description: 
       strength: 20
+      icon: {fileID: 0}
       typeattack: 3
     PKM_Owner: 1
   - Name: Charmander
     Type: 0
     Health: 100
     Sprite: {fileID: 21300000, guid: 53dbc4d25a5912a48a1469aa9efacdaa, type: 3}
+    BackSprite: {fileID: 21300000, guid: 6b84b9751aaeea648bfa73b68f2d8a55, type: 3}
     attacks:
     - name: Ember
       description: 
       strength: 27.6
+      icon: {fileID: 0}
       typeattack: 0
     - name: Growl
       description: 
       strength: 0
+      icon: {fileID: 0}
       typeattack: 3
     - name: Tackle
       description: 
       strength: 19.1
+      icon: {fileID: 0}
       typeattack: 3
     PKM_Owner: 1
   - Name: Bulbasaur
     Type: 1
     Health: 100
     Sprite: {fileID: 21300000, guid: c622e519e60248d49afec75d51cdaae6, type: 3}
+    BackSprite: {fileID: 0}
     attacks:
     - name: Water gun
       description: 
       strength: 27.6
+      icon: {fileID: 0}
       typeattack: 2
     - name: Slam
       description: 
       strength: 40
+      icon: {fileID: 0}
       typeattack: 3
     - name: Surf
       description: 
       strength: 60
+      icon: {fileID: 0}
       typeattack: 2
     - name: Tackle
       description: 
       strength: 20
+      icon: {fileID: 0}
       typeattack: 3
     PKM_Owner: 1
 --- !u!4 &405847412

@@ -50,7 +50,7 @@ public class SM_WinCalculator : MonoBehaviour {
         float score = new float();
         score = Roles[0].curPanel.strength + Roles[1].curPanel.strength + Roles[2].curPanel.strength;
         Debug.Log("Score: " + score);
-        Battle_Menu_Manager.SwitchTurnMenu(Turn_Menu.None);
-        Battle_Manager.SwitchState(Battle_State.Fight);
+        Event_Manager.Switch_State(Turn_Menu.None);
+        Event_Manager.Switch_BattleState(Battle_State.Fight);
     }
 }
