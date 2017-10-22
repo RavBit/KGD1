@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 
@@ -13,6 +12,8 @@ public enum Battle_State
 public class Battle_Manager : MonoBehaviour {
     [SerializeField]
     public Enemy_Manager Enemy_Manager;
+    [SerializeField]
+    public Trainer_Manager Trainer_Manager;
     public static Battle_Manager instance;
     //Actions
     public Battle_State _currentstate = Battle_State.Turn;
@@ -32,23 +33,11 @@ public class Battle_Manager : MonoBehaviour {
     }
     void InitEnemy()
     {
-        Enemy_Manager.Pokemon = Pokemon_Collections.instance.Pokemon.ToList();
-        int amount = 0;
-        foreach(Pokemon pokemon in Enemy_Manager.Pokemon)
-        {
-            while (amount != Enemy_Manager.amount_pokemon)
-            {
-                int r = Random.Range(0, 2);
-                if (r == 1 && amount != Enemy_Manager.amount_pokemon)
-                {
-                    pokemon.PKM_Owner = PKM_Owner.Enemy;
-                    amount++;
-                }
-            }
-            if (pokemon.PKM_Owner != PKM_Owner.Enemy)
-                Enemy_Manager.Pokemon.Remove(pokemon);
-        }
+        Trainer_Manager.Start();
+        Enemy_Manager.Start();
+        Event_Manager.Loading_DataBank();
     }
+
     public void ChangeState(Battle_State _newstate)
     {
         _currentstate = _newstate;
@@ -63,6 +52,40 @@ public class Battle_Manager : MonoBehaviour {
                 break;
             case Battle_State.Fight:
                 Event_Manager.Start_Gamble(false);
+                break;
+        }
+    }
+    public void ATTACKMngr(int score)
+    {
+        int attacked = 0;
+        while (attacked != 2)
+        {
+            int random = Random.Range(0, 2);
+            if (random == 0)
+            {
+                attacked++;
+                Attack(PKM_Owner.Enemy, (-1 * (int)score));
+            }
+            if (random == 1)
+            {
+                attacked++;
+                System.Random rand = new System.Random();
+                int r = rand.Next(Enemy_Manager.GetCurPokemon().attacks.Count);
+                float attack = Enemy_Manager.GetCurPokemon().attacks[r].strength * Random.Range(0, 2) * Random.Range(-1, 1);
+                Debug.Log("Attack: " + attack);
+                Attack(PKM_Owner.Player, (-1 * (int)attack));
+            }
+        }
+    }
+    public void Attack(PKM_Owner _curattacker, int damage)
+    {
+        switch (_curattacker)
+        {
+            case PKM_Owner.Player:
+                Enemy_Manager.AdjustHealth(damage);
+                break;
+            case PKM_Owner.Enemy:
+                Trainer_Manager.AdjustHealth(damage);
                 break;
         }
     }

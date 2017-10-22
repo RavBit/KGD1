@@ -13,15 +13,20 @@ public enum Turn_Menu
 }
 public class Battle_Menu_Manager : MonoBehaviour
 {
-    public Pokemon CurPokemon;
     public GameObject Battle_Menu;
     public Image Cur_Pokemon_Back;
+    public Image Enemy_Pokemon_Front;
     public Turn_Menu Turn_Menu = Turn_Menu.None; 
     void Awake()
     {
-        CurPokemon = Pokemon_Collections.instance.Pokemon[0];
-        Cur_Pokemon_Back.sprite = CurPokemon.BackSprite;
         Event_Manager.SwitchTurnState += SetTurnMenu;
+        Invoke("InitSprites", 0.1f);
+    }
+
+    void InitSprites()
+    {
+        Enemy_Pokemon_Front.sprite = Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Sprite;
+        Cur_Pokemon_Back.sprite = Battle_Manager.instance.Trainer_Manager.GetCurPokemon().BackSprite;
     }
     void SetTurnMenu(Turn_Menu cur_menu)
     {
@@ -40,7 +45,7 @@ public class Battle_Menu_Manager : MonoBehaviour
     }
 
     void SetPanels() {
-        foreach (PKM_Attack attack in CurPokemon.attacks) {
+        foreach (PKM_Attack attack in Battle_Manager.instance.Trainer_Manager.GetCurPokemon().attacks) {
             SM_PanelData panel = new SM_PanelData();
             panel.name = attack.name;
             panel.spawnrate = ((attack.strength - 100) * -1);

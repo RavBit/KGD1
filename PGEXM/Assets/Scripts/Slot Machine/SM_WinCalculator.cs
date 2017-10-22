@@ -52,5 +52,6 @@ public class SM_WinCalculator : MonoBehaviour {
         Debug.Log("Score: " + score);
         Event_Manager.Switch_State(Turn_Menu.None);
         Event_Manager.Switch_BattleState(Battle_State.Fight);
+        Battle_Manager.instance.ATTACKMngr((int)score);
     }
 }

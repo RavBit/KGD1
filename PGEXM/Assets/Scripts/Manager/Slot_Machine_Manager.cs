@@ -13,6 +13,5 @@ public class Slot_Machine_Manager : MonoBehaviour {
     public void ToggleSM(bool toggle)
     {
         BaseObject.SetActive(toggle);
-        Debug.Log("SET ACTIVE SM");
     }
 }

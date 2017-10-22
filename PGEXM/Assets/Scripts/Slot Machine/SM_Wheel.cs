@@ -69,7 +69,6 @@ public class SM_Wheel : MonoBehaviour {
         }
         else
         {
-            Debug.Log("ELSE");
             item = SM_WinCalculator.CheckString(GetComponent<SM_Wheel>());
         }
         StartCoroutine("StopWheels", item);
@@ -81,14 +80,12 @@ public class SM_Wheel : MonoBehaviour {
         SM_WinCalculator.WinCalculator(curitem);
         while (curitem.transform.localPosition.y != 0)
         {
-            Debug.Log("check for " + curitem.curPanel.name);
             yield return new WaitForSeconds(0.01f);
         }
         if (curitem.transform.localPosition.y == 0)
         {
             foreach (SM_Item panel in sm_items)
             {
-                Debug.Log("check done");
                 panel.stopping = true;
             }
         }

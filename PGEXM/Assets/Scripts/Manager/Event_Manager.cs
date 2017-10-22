@@ -16,8 +16,10 @@ public class Event_Manager : MonoBehaviour {
     public delegate void SwitchBattle(Battle_State state);
     public static event SwitchBattle SwitchBattleState;
 
-    public delegate void EnemyAttack(int damage);
-    public static event EnemyAttack EnemyAttacked;
+    //Load in the pokemons from the databank
+    public delegate void LoadDataBank();
+    public static event LoadDataBank LoadingDataBank;
+
     public static void Start_Gamble(bool toggle)
     {
         InitGamble(toggle);
@@ -29,6 +31,10 @@ public class Event_Manager : MonoBehaviour {
     public static void Switch_BattleState(Battle_State state)
     {
         SwitchBattleState(state);
+    }
+    public static void Loading_DataBank()
+    {
+        LoadingDataBank();
     }
 
 }
