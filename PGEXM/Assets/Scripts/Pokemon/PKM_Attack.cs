@@ -12,6 +12,8 @@ public class PKM_Attack {
     [Range(0, 100)]
     [Tooltip("Spawnrate of how much the panel will spawn")]
     public float strength = 50;
+    [Tooltip("Icon of the attack")]
+    public Sprite icon;
     [Tooltip("Type of attack:")]
     public Type typeattack;
 }

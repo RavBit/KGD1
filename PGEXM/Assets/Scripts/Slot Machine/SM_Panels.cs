@@ -28,4 +28,7 @@ public class SM_Panels : MonoBehaviour {
         }
         return cur;
     }
+    public void AddPanel(SM_PanelData panel) {
+        paneldata.Add(panel);
+    }
 }

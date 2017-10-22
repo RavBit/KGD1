@@ -14,10 +14,10 @@ public class Battle_Manager : MonoBehaviour {
     public delegate void StartGamble(bool toggle);
     public static event StartGamble InitGamble;
     public Battle_State _currentstate = Battle_State.Turn;
+    public static System.Action<Battle_State> SwitchState;
 
     [SerializeField]
     private GameObject Turn_Menu;
-    public bool TimerDone = false;
     void Awake()
     {
         if (instance != null)
@@ -25,7 +25,8 @@ public class Battle_Manager : MonoBehaviour {
         else
             instance = this;
         DontDestroyOnLoad(transform.gameObject);
-        ChangeState(Battle_State.Turn);
+        SwitchState += ChangeState;
+        SwitchState(Battle_State.Turn);
     }
 
     public void ChangeState(Battle_State _newstate)
@@ -39,6 +40,9 @@ public class Battle_Manager : MonoBehaviour {
             case Battle_State.Gamble:
                 TurnToggle(false);
                 InitGamble(true);
+                break;
+            case Battle_State.Fight:
+                InitGamble(false);
                 break;
         }
     }

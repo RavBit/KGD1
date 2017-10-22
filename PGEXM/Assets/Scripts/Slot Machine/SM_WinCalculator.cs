@@ -6,17 +6,18 @@ using System.Linq;
 public class SM_WinCalculator : MonoBehaviour {
     [Range(0, 100)]
     [Tooltip("Spawnrate of how much the panel will spawn")]
-    public static float winrate = 80;
-
+    public float winrate = 80;
+    private static float _winrate;
     public static bool FirstSpin = false;
     public delegate void WinCalcu(SM_Item item);
     public static System.Action<SM_Item> WinCalculator;
     [SerializeField]
-    public static List<string> Roles;
+    public static List<SM_Item> Roles;
     void Start()
     {
-        Roles = new List<string>();
-        winrate = new float();
+        Roles = new List<SM_Item>();
+        _winrate = new float();
+        _winrate = winrate;
         WinCalculator += AddFirstWin;
     }
 
@@ -25,43 +26,31 @@ public class SM_WinCalculator : MonoBehaviour {
         foreach (SM_Item panel in wheel.sm_items)
         {
 
-            if (Roles.Contains(panel.curPanel.name))
+            if (Roles.Contains(panel))
             {
-                int winrate2 = 30;
-                int test = (Random.Range(0, 70));
-                Debug.Log("test:  " + test + " winrate:  " + winrate2);
-                if (test < winrate2)
+                int random = (Random.Range(0, 70));
+                if (random < _winrate)
                 {
-                    Debug.Log("RANDOM " + test);
                     return panel;
-                }
-                else
-                {
-                    Debug.Log("GOING FOR THE ELSE");
-                    System.Random rand = new System.Random();
-                    int r = rand.Next(wheel.sm_items.Count);
-                    return wheel.sm_items[r];
                 }
             }
         }
-        System.Random rand2 = new System.Random();
-        int r2 = rand2.Next(wheel.sm_items.Count);
-        return wheel.sm_items[r2];
+        System.Random rand = new System.Random();
+        int r = rand.Next(wheel.sm_items.Count);
+        return wheel.sm_items[r];
     }
        
     public void AddFirstWin(SM_Item item)
     {
-        Roles.Add(item.curPanel.name);
+        Roles.Add(item);
+        if (Roles.Count == 3)
+            Invoke("SwitchMode", 3);
     }
-
-    public string AddChance()
-    {
-        if (Roles[0] != null)
-        {
-            float c = Random.Range(0, winrate);
-            if (c < winrate)
-                return Roles[0];
-        }
-        return null;
+    void SwitchMode() {
+        float score = new float();
+        score = Roles[0].curPanel.strength + Roles[1].curPanel.strength + Roles[2].curPanel.strength;
+        Debug.Log("Score: " + score);
+        Battle_Menu_Manager.SwitchTurnMenu(Turn_Menu.None);
+        Battle_Manager.SwitchState(Battle_State.Fight);
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -173,6 +173,74 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &27108896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 27108897}
+  - component: {fileID: 27108899}
+  - component: {fileID: 27108898}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &27108897
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 27108896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -529, y: 50, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 645824587}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -529, y: 50}
+  m_SizeDelta: {x: 420, y: 420}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &27108898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 27108896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &27108899
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 27108896}
 --- !u!1 &33149526
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &100609735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,23 +393,27 @@ MonoBehaviour:
     Type: 2
     Health: 100
     Sprite: {fileID: 21300000, guid: a59248e608cf0664e9c2ce64562ed404, type: 3}
-    BackSprite: {fileID: 0}
+    BackSprite: {fileID: 21300000, guid: 926878e75ee7b4a4686b0c5be9195641, type: 3}
     attacks:
     - name: Water gun
       description: 
       strength: 27.6
+      icon: {fileID: 21300000, guid: 1c616f323b7fdfc4dabd119c43b7b6c1, type: 3}
       typeattack: 2
     - name: Slam
       description: 
       strength: 40
+      icon: {fileID: 21300000, guid: 926878e75ee7b4a4686b0c5be9195641, type: 3}
       typeattack: 3
     - name: Surf
       description: 
       strength: 60
+      icon: {fileID: 21300000, guid: a382a3161612f1a489d5dea0cf1baa20, type: 3}
       typeattack: 2
     - name: Tackle
       description: 
       strength: 20
+      icon: {fileID: 21300000, guid: c622e519e60248d49afec75d51cdaae6, type: 3}
       typeattack: 3
     PKM_Owner: 1
   - Name: Charmander
@@ -353,14 +425,17 @@ MonoBehaviour:
     - name: Ember
       description: 
       strength: 27.6
+      icon: {fileID: 0}
       typeattack: 0
     - name: Growl
       description: 
       strength: 0
+      icon: {fileID: 0}
       typeattack: 3
     - name: Tackle
       description: 
       strength: 19.1
+      icon: {fileID: 0}
       typeattack: 3
     PKM_Owner: 1
   - Name: Bulbasaur
@@ -372,18 +447,22 @@ MonoBehaviour:
     - name: Water gun
       description: 
       strength: 27.6
+      icon: {fileID: 0}
       typeattack: 2
     - name: Slam
       description: 
       strength: 40
+      icon: {fileID: 0}
       typeattack: 3
     - name: Surf
       description: 
       strength: 60
+      icon: {fileID: 0}
       typeattack: 2
     - name: Tackle
       description: 
       strength: 20
+      icon: {fileID: 0}
       typeattack: 3
     PKM_Owner: 1
 --- !u!4 &100609736
@@ -1059,7 +1138,7 @@ Prefab:
     - target: {fileID: 114795032549023974, guid: be83102348341374190ba7fd1ab2fe05,
         type: 2}
       propertyPath: paneldata.Array.size
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4757874675885422, guid: be83102348341374190ba7fd1ab2fe05, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1263,6 +1342,36 @@ Prefab:
       propertyPath: BaseObject
       value: 
       objectReference: {fileID: 603204209}
+    - target: {fileID: 114795032549023974, guid: be83102348341374190ba7fd1ab2fe05,
+        type: 2}
+      propertyPath: paneldata.Array.data[4].strength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795032549023974, guid: be83102348341374190ba7fd1ab2fe05,
+        type: 2}
+      propertyPath: paneldata.Array.data[5].strength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795032549023974, guid: be83102348341374190ba7fd1ab2fe05,
+        type: 2}
+      propertyPath: paneldata.Array.data[6].strength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795032549023974, guid: be83102348341374190ba7fd1ab2fe05,
+        type: 2}
+      propertyPath: paneldata.Array.data[7].strength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795032549023974, guid: be83102348341374190ba7fd1ab2fe05,
+        type: 2}
+      propertyPath: paneldata.Array.data[8].strength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114795032549023974, guid: be83102348341374190ba7fd1ab2fe05,
+        type: 2}
+      propertyPath: paneldata.Array.data[9].strength
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be83102348341374190ba7fd1ab2fe05, type: 2}
   m_IsPrefabParent: 0
@@ -1391,7 +1500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &603204210
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1507,6 +1616,7 @@ RectTransform:
   - {fileID: 1873225169}
   - {fileID: 384055243}
   - {fileID: 603204210}
+  - {fileID: 27108897}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1568,6 +1678,7 @@ MonoBehaviour:
     attacks: []
     PKM_Owner: 1
   Battle_Menu: {fileID: 0}
+  Cur_Pokemon_Back: {fileID: 27108898}
   Turn_Menu: 0
 --- !u!1 &836887913
 GameObject:
@@ -1905,7 +2016,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentstate: 0
   Turn_Menu: {fileID: 18906714}
-  TimerDone: 0
 --- !u!4 &938904413
 Transform:
   m_ObjectHideFlags: 0
@@ -2771,6 +2881,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ac4d5fa928f8b4494798cc197abbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winrate: 30
 --- !u!1 &2075472055
 GameObject:
   m_ObjectHideFlags: 0

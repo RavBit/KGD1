@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Turn_Menu
 {
@@ -14,12 +15,14 @@ public class Battle_Menu_Manager : MonoBehaviour
 {
     public Pokemon CurPokemon;
     public GameObject Battle_Menu;
+    public Image Cur_Pokemon_Back;
     public Turn_Menu Turn_Menu = Turn_Menu.None;
-    
+    public static System.Action<Turn_Menu> SwitchTurnMenu; 
     void Awake()
     {
-        //TODO MAKE POKEMON DRAW SYSTEM
         CurPokemon = Pokemon_Collections.instance.Pokemon[0];
+        Cur_Pokemon_Back.sprite = CurPokemon.BackSprite;
+        SwitchTurnMenu += SetTurnMenu;
     }
     void SetTurnMenu(Turn_Menu cur_menu)
     {
@@ -28,13 +31,25 @@ public class Battle_Menu_Manager : MonoBehaviour
         switch (Turn_Menu)
         {
             case Turn_Menu.Attack:
+                SetPanels();
                 Battle_Manager.instance.ChangeState(Battle_State.Gamble);
                 break;
             case Turn_Menu.Pokemon:
-                Debug.Log("Gamble");
                 break;
         }
 
+    }
+
+    void SetPanels() {
+        foreach (PKM_Attack attack in CurPokemon.attacks) {
+            SM_PanelData panel = new SM_PanelData();
+            panel.name = attack.name;
+            panel.spawnrate = ((attack.strength - 100) * -1);
+            panel.image = attack.icon;
+            panel.strength = attack.strength;
+            panel.unique = true;
+            SM_Panels.instance.AddPanel(panel);
+        }
     }
 
     public void Turnswitch(string _name)

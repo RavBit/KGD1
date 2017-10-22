@@ -8,6 +8,9 @@ public class SM_PanelData {
     [Range(0, 100)]
     [Tooltip("Spawnrate of how much the panel will spawn")]
     public float spawnrate = 10;
+    [Range(0, 100)]
+    [Tooltip("Strength")]
+    public float strength = 20;
     [Tooltip("Unique panel to spawn")]
     public bool unique = false;
     [Tooltip("Image of the panel")]
