@@ -19,6 +19,7 @@ public class SM_WinCalculator : MonoBehaviour {
         _winrate = new float();
         _winrate = winrate;
         WinCalculator += AddFirstWin;
+        Event_Manager.ResetSM += Reset;
     }
 
     public static SM_Item CheckString(SM_Wheel wheel)
@@ -38,6 +39,10 @@ public class SM_WinCalculator : MonoBehaviour {
         System.Random rand = new System.Random();
         int r = rand.Next(wheel.sm_items.Count);
         return wheel.sm_items[r];
+    }
+    public static void Reset()
+    {
+        Roles.Clear();
     }
        
     public void AddFirstWin(SM_Item item)

@@ -23,6 +23,11 @@ public class Battle_Menu_Manager : MonoBehaviour
         Invoke("InitSprites", 0.1f);
     }
 
+    void Update()
+    {
+
+    }
+
     void InitSprites()
     {
         Enemy_Pokemon_Front.sprite = Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Sprite;
@@ -45,6 +50,7 @@ public class Battle_Menu_Manager : MonoBehaviour
     }
 
     void SetPanels() {
+        Event_Manager.Reset_SM();
         foreach (PKM_Attack attack in Battle_Manager.instance.Trainer_Manager.GetCurPokemon().attacks) {
             SM_PanelData panel = new SM_PanelData();
             panel.name = attack.name;

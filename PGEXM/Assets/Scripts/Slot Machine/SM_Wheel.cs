@@ -56,7 +56,6 @@ public class SM_Wheel : MonoBehaviour {
         }
         return false;
     }
-
     public void StopWheel()
     {
         SM_Item item = null;
@@ -91,4 +90,5 @@ public class SM_Wheel : MonoBehaviour {
         }
 
     }
+
 }

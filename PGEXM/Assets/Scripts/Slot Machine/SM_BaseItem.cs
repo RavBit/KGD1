@@ -15,9 +15,11 @@ public class SM_BaseItem : MonoBehaviour, SM_Items {
     public SM_PanelData curPanel;
     public Image baseImage;
     void Start() {
+        Event_Manager.ResetSM += Init;
         Init();
     }
     public void Init() {
+        stopping = false;
         _speed = 10;
         baseImage = GetComponent<Image>();
     }

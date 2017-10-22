@@ -57,32 +57,28 @@ public class Battle_Manager : MonoBehaviour {
     }
     public void ATTACKMngr(int score)
     {
-        int attacked = 0;
-        while (attacked != 2)
+        int random = 0;
+        while (random != 2)
         {
-            int random = Random.Range(0, 2);
             if (random == 0)
-            {
-                attacked++;
                 Attack(PKM_Owner.Enemy, (-1 * (int)score));
-            }
             if (random == 1)
             {
-                attacked++;
                 System.Random rand = new System.Random();
                 int r = rand.Next(Enemy_Manager.GetCurPokemon().attacks.Count);
-                float attack = Enemy_Manager.GetCurPokemon().attacks[r].strength * Random.Range(0, 2) * Random.Range(-1, 1);
-                Debug.Log("Attack: " + attack);
+                float attack = Enemy_Manager.GetCurPokemon().attacks[r].strength * Random.Range(1, 3);
                 Attack(PKM_Owner.Player, (-1 * (int)attack));
             }
+            random++;
         }
+        ChangeState(Battle_State.Turn);
     }
     public void Attack(PKM_Owner _curattacker, int damage)
     {
         switch (_curattacker)
         {
             case PKM_Owner.Player:
-                Enemy_Manager.AdjustHealth(damage);
+                    Enemy_Manager.AdjustHealth(damage);
                 break;
             case PKM_Owner.Enemy:
                 Trainer_Manager.AdjustHealth(damage);

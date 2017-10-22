@@ -20,6 +20,10 @@ public class Event_Manager : MonoBehaviour {
     public delegate void LoadDataBank();
     public static event LoadDataBank LoadingDataBank;
 
+
+    //Reset Slot Machine and restart
+    public delegate void ResetSlotMachine();
+    public static event ResetSlotMachine ResetSM;
     public static void Start_Gamble(bool toggle)
     {
         InitGamble(toggle);
@@ -35,6 +39,11 @@ public class Event_Manager : MonoBehaviour {
     public static void Loading_DataBank()
     {
         LoadingDataBank();
+    }
+    public static void Reset_SM()
+    {
+        if(ResetSM != null)
+            ResetSM();
     }
 
 }
