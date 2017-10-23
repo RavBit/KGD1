@@ -27,6 +27,15 @@ public class Battle_Menu_Manager : MonoBehaviour
     {
 
     }
+    public static void FlashSprite(PKM_Owner owner) {
+        switch(owner) {
+            case PKM_Owner.Enemy:
+
+                break;
+            case PKM_Owner.Player:
+                break;
+        }
+    }
 
     void InitSprites()
     {

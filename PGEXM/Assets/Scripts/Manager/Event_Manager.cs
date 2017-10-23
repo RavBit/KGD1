@@ -23,27 +23,27 @@ public class Event_Manager : MonoBehaviour {
 
     //Reset Slot Machine and restart
     public delegate void ResetSlotMachine();
-    public static event ResetSlotMachine ResetSM;
-    public static void Start_Gamble(bool toggle)
-    {
+    public static event ResetSlotMachine ResetSM; 
+    //Set the text in the Message Center
+    public delegate void SetTextMessage(string text);
+    public static event SetTextMessage SetMessageText;
+    public static void Start_Gamble(bool toggle) {
         InitGamble(toggle);
     }
-    public static void Switch_State(Turn_Menu state)
-    {
+    public static void Switch_State(Turn_Menu state) {
         SwitchTurnState(state);
     }
-    public static void Switch_BattleState(Battle_State state)
-    {
+    public static void Switch_BattleState(Battle_State state) {
         SwitchBattleState(state);
     }
-    public static void Loading_DataBank()
-    {
+    public static void Loading_DataBank() {
         LoadingDataBank();
     }
-    public static void Reset_SM()
-    {
-        if(ResetSM != null)
+    public static void Reset_SM() {
+        if (ResetSM != null)
             ResetSM();
     }
-
+    public static void Set_MessageText(string text) {
+        SetMessageText(text);
+    }
 }
