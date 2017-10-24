@@ -46,20 +46,31 @@ public class SM_WinCalculator : MonoBehaviour {
     }
     void SwitchMode() {
         float score = new float();
-        if (Roles[0].curPanel != Roles[1].curPanel  && Roles[1].curPanel != Roles[2].curPanel) {
+        string attack = "";
+        if (Roles[0].curPanel != Roles[1].curPanel && Roles[1].curPanel != Roles[2].curPanel) {
             System.Random rand = new System.Random();
             int r = rand.Next(Roles.Count);
             score = Roles[r].curPanel.strength;
+            attack = Roles[r].curPanel.name;
         }
         if (Roles[0].curPanel == Roles[1].curPanel)
+        {
             score = Roles[0].curPanel.strength + Roles[1].curPanel.strength;
+            attack = Roles[0].curPanel.name;
+        }
         if (Roles[1].curPanel == Roles[2].curPanel)
+        {
             score = Roles[1].curPanel.strength + Roles[2].curPanel.strength;
+            attack = Roles[1].curPanel.name;
+        }
         if (Roles[1].curPanel == Roles[2].curPanel && Roles[2].curPanel == Roles[0].curPanel)
+        {
             score = Roles[0].curPanel.strength + Roles[1].curPanel.strength + Roles[2].curPanel.strength;
+            attack = Roles[0].curPanel.name;
+        }
         Debug.Log("Score: " + score);
         Event_Manager.Switch_State(Turn_Menu.None);
         Event_Manager.Switch_BattleState(Battle_State.Fight);
-        Battle_Manager.instance.StartAttack((int)score);
+        Battle_Manager.instance.StartAttack((int)score, attack);
     }
 }

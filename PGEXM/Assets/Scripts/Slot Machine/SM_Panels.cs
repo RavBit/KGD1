@@ -14,7 +14,6 @@ public class SM_Panels : MonoBehaviour {
             Debug.LogError("More than one SM Panels in the scene");
         else
             instance = this;
-        DontDestroyOnLoad(transform.gameObject);
     }
     public SM_PanelData PanelSpawn(SM_PanelData cur, SM_Wheel wheelcheck)
     {
@@ -29,5 +28,9 @@ public class SM_Panels : MonoBehaviour {
     }
     public void AddPanel(SM_PanelData panel) {
         paneldata.Add(panel);
+    }
+    public void RemovePanel(SM_PanelData panel)
+    {
+        paneldata.Remove(panel);
     }
 }

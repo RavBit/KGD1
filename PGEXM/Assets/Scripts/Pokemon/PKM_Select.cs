@@ -34,13 +34,13 @@ public class PKM_Select : MonoBehaviour {
         }
     }
     public void StartGame() {
-        int count = 0;
+        /*int count = 0;
         foreach(Pokemon pkm in Pokemon_Collections.instance.Pokemon) {
             if (pkm.PKM_Owner == PKM_Owner.Player)
                 count++;
         }
         if (count == 0)
-            return;
+            return;*/
         SceneManager.LoadScene("battle");
     }
 

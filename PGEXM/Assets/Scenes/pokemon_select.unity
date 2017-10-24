@@ -137,7 +137,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10102122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 750, y: 150, z: 0}
+  m_LocalPosition: {x: 500, y: 150, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 47605525}
@@ -265,7 +265,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -118}
-  m_SizeDelta: {x: 1500, y: 300}
+  m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &22559381
 MonoBehaviour:
@@ -279,15 +279,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.216}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 328aadba020044045b7d8d0ecea47a8b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -353,7 +353,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 47605524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 90, z: 0}
+  m_LocalPosition: {x: 240, y: 90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2040535801}
@@ -390,7 +390,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 92414194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -750, y: 150, z: 0}
+  m_LocalPosition: {x: -500, y: 150, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2074319014}
@@ -447,6 +447,115 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 0
+--- !u!1 &135161875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 135161877}
+  - component: {fileID: 135161876}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &135161876
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 135161875}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 03f0076ea755621448b6f11b8261dd69, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!4 &135161877
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 135161875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1061.1337, y: 639.32404, z: -0.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &229110460
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +808,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 340684262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -750, y: -150, z: 0}
+  m_LocalPosition: {x: -500, y: -150, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1512983463}
@@ -790,123 +899,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 340684262}
---- !u!1 &405847410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 405847412}
-  - component: {fileID: 405847411}
-  m_Layer: 0
-  m_Name: Pokemon_Databank
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &405847411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 405847410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a519f9369d31de647ba66e1c924f9d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pokemon:
-  - Name: Squirtle
-    Type: 2
-    Health: 100
-    Sprite: {fileID: 21300000, guid: a59248e608cf0664e9c2ce64562ed404, type: 3}
-    BackSprite: {fileID: 21300000, guid: 926878e75ee7b4a4686b0c5be9195641, type: 3}
-    attacks:
-    - name: Water gun
-      description: 
-      strength: 27.6
-      icon: {fileID: 0}
-      typeattack: 2
-    - name: Slam
-      description: 
-      strength: 40
-      icon: {fileID: 0}
-      typeattack: 3
-    - name: Surf
-      description: 
-      strength: 60
-      icon: {fileID: 0}
-      typeattack: 2
-    - name: Tackle
-      description: 
-      strength: 20
-      icon: {fileID: 0}
-      typeattack: 3
-    PKM_Owner: 1
-  - Name: Charmander
-    Type: 0
-    Health: 100
-    Sprite: {fileID: 21300000, guid: 53dbc4d25a5912a48a1469aa9efacdaa, type: 3}
-    BackSprite: {fileID: 21300000, guid: 6b84b9751aaeea648bfa73b68f2d8a55, type: 3}
-    attacks:
-    - name: Ember
-      description: 
-      strength: 27.6
-      icon: {fileID: 0}
-      typeattack: 0
-    - name: Growl
-      description: 
-      strength: 0
-      icon: {fileID: 0}
-      typeattack: 3
-    - name: Tackle
-      description: 
-      strength: 19.1
-      icon: {fileID: 0}
-      typeattack: 3
-    PKM_Owner: 1
-  - Name: Bulbasaur
-    Type: 1
-    Health: 100
-    Sprite: {fileID: 21300000, guid: c622e519e60248d49afec75d51cdaae6, type: 3}
-    BackSprite: {fileID: 0}
-    attacks:
-    - name: Water gun
-      description: 
-      strength: 27.6
-      icon: {fileID: 0}
-      typeattack: 2
-    - name: Slam
-      description: 
-      strength: 40
-      icon: {fileID: 0}
-      typeattack: 3
-    - name: Surf
-      description: 
-      strength: 60
-      icon: {fileID: 0}
-      typeattack: 2
-    - name: Tackle
-      description: 
-      strength: 20
-      icon: {fileID: 0}
-      typeattack: 3
-    PKM_Owner: 1
---- !u!4 &405847412
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 405847410}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &414076257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1040,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 431928970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 497, y: -356, z: 0}
+  m_LocalPosition: {x: 45, y: -356, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 914547090}
@@ -1057,7 +1049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 497, y: -356}
+  m_AnchoredPosition: {x: 45, y: -356}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431928972
@@ -1131,8 +1123,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 328aadba020044045b7d8d0ecea47a8b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1194,7 +1186,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1339,6 +1331,177 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &694135311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 694135313}
+  - component: {fileID: 694135312}
+  m_Layer: 0
+  m_Name: Pokemon_Databank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &694135312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694135311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a519f9369d31de647ba66e1c924f9d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pokemon:
+  - Name: SQUIRTLE
+    Type: 2
+    Health: 100
+    Sprite: {fileID: 21300004, guid: 934ed26ec11721e41ba9e5b8656b6660, type: 3}
+    BackSprite: {fileID: 21300002, guid: b17e557ef059e8f4ca7090f817b8891d, type: 3}
+    attacks:
+    - name: Water gun
+      description: 
+      strength: 27.6
+      icon: {fileID: 21300000, guid: 1c616f323b7fdfc4dabd119c43b7b6c1, type: 3}
+      typeattack: 2
+    - name: Slam
+      description: 
+      strength: 40
+      icon: {fileID: 21300000, guid: 926878e75ee7b4a4686b0c5be9195641, type: 3}
+      typeattack: 3
+    - name: Surf
+      description: 
+      strength: 60
+      icon: {fileID: 21300000, guid: a382a3161612f1a489d5dea0cf1baa20, type: 3}
+      typeattack: 2
+    - name: Tackle
+      description: 
+      strength: 20
+      icon: {fileID: 21300000, guid: c622e519e60248d49afec75d51cdaae6, type: 3}
+      typeattack: 3
+    PKM_Owner: 1
+  - Name: CHARMANDER
+    Type: 0
+    Health: 100
+    Sprite: {fileID: 21300008, guid: 934ed26ec11721e41ba9e5b8656b6660, type: 3}
+    BackSprite: {fileID: 21300006, guid: b17e557ef059e8f4ca7090f817b8891d, type: 3}
+    attacks:
+    - name: Ember
+      description: 
+      strength: 27.6
+      icon: {fileID: 0}
+      typeattack: 0
+    - name: Growl
+      description: 
+      strength: 0
+      icon: {fileID: 0}
+      typeattack: 3
+    - name: Tackle
+      description: 
+      strength: 19.1
+      icon: {fileID: 0}
+      typeattack: 3
+    PKM_Owner: 1
+  - Name: BULBASAUR
+    Type: 1
+    Health: 100
+    Sprite: {fileID: 21300006, guid: 934ed26ec11721e41ba9e5b8656b6660, type: 3}
+    BackSprite: {fileID: 21300004, guid: b17e557ef059e8f4ca7090f817b8891d, type: 3}
+    attacks:
+    - name: Vine Whip
+      description: 
+      strength: 10
+      icon: {fileID: 21300000, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 1
+    - name: Razor Leaf
+      description: 
+      strength: 20
+      icon: {fileID: 21300002, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 1
+    - name: Solar Beam
+      description: 
+      strength: 60
+      icon: {fileID: 21300004, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 1
+    - name: Tackle
+      description: 
+      strength: 20
+      icon: {fileID: 21300006, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 3
+    PKM_Owner: 0
+  - Name: EVEE
+    Type: 3
+    Health: 100
+    Sprite: {fileID: 21300010, guid: b17e557ef059e8f4ca7090f817b8891d, type: 3}
+    BackSprite: {fileID: 21300010, guid: 934ed26ec11721e41ba9e5b8656b6660, type: 3}
+    attacks:
+    - name: Tackle
+      description: 
+      strength: 10
+      icon: {fileID: 21300016, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 1
+    - name: Slam
+      description: 
+      strength: 20
+      icon: {fileID: 21300010, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 1
+    - name: Thunder
+      description: 
+      strength: 60
+      icon: {fileID: 21300014, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 1
+    - name: Water Gun
+      description: 
+      strength: 20
+      icon: {fileID: 21300012, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 3
+    PKM_Owner: 0
+  - Name: NIDORAN
+    Type: 1
+    Health: 10
+    Sprite: {fileID: 21300014, guid: 934ed26ec11721e41ba9e5b8656b6660, type: 3}
+    BackSprite: {fileID: 21300018, guid: b17e557ef059e8f4ca7090f817b8891d, type: 3}
+    attacks:
+    - name: dfg
+      description: 
+      strength: 10
+      icon: {fileID: 21300000, guid: a382a3161612f1a489d5dea0cf1baa20, type: 3}
+      typeattack: 1
+    - name: dsfa
+      description: 
+      strength: 20
+      icon: {fileID: 21300002, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 1
+    - name: frghthn
+      description: 
+      strength: 60
+      icon: {fileID: 21300004, guid: f7819e31acec8094cbc04bb7fe9409b8, type: 3}
+      typeattack: 1
+    - name: hterjntjmrjn
+      description: 
+      strength: 20
+      icon: {fileID: 0}
+      typeattack: 3
+    PKM_Owner: 0
+--- !u!4 &694135313
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 694135311}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740768925
@@ -1366,7 +1529,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 740768925}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -750, y: 150, z: 0}
+  m_LocalPosition: {x: -500, y: 150, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 229110461}
@@ -1459,7 +1622,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 307}
-  m_SizeDelta: {x: 1500, y: 300}
+  m_SizeDelta: {x: 1000, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &760821921
 MonoBehaviour:
@@ -1473,15 +1636,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.216}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 328aadba020044045b7d8d0ecea47a8b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1648,7 +1811,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8301d449df2001d4ab0d2d1324356eff, type: 3}
     m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
@@ -2031,7 +2194,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1512983462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 741.5, y: 10, z: 0}
+  m_LocalPosition: {x: 491.5, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 928587996}
@@ -2068,7 +2231,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1556557115}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -750, y: -150, z: 0}
+  m_LocalPosition: {x: -500, y: -150, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1838680412}
@@ -2204,10 +2367,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1300, y: 1077.5}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -2241,7 +2404,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1657812194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalPosition: {x: 650, y: 538.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22559380}
@@ -2343,7 +2506,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1838680411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 10, z: 0}
+  m_LocalPosition: {x: -240, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 337032956}

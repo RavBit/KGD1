@@ -11,8 +11,6 @@ public class SM_PanelData {
     [Range(0, 100)]
     [Tooltip("Strength")]
     public float strength = 20;
-    [Tooltip("Unique panel to spawn")]
-    public bool unique = false;
     [Tooltip("Image of the panel")]
     public Sprite image;
 }
