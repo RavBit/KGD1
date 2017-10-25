@@ -17,7 +17,7 @@ public class Pokemon_BaseItem {
     [Header("Attack settings:")]
     public List<PKM_Attack> attacks = new List<PKM_Attack>(4);
     [Header("Owner:")]
-    public PKM_Owner PKM_Owner = PKM_Owner.None;
+    public pkm_owner pkm_owner = pkm_owner.None;
 }
 
 public enum Type {

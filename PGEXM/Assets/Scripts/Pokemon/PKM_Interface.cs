@@ -3,38 +3,32 @@ using UnityEngine.UI;
 using DG.Tweening;
 
 public class PKM_Interface : MonoBehaviour {
-    public PKM_Owner Pkm_Owner;
+    public pkm_owner pkm_owner;
     [SerializeField]
-    private Text Name;
+    private Text name;
     [SerializeField]
-    private Image HP_bar;
-    [SerializeField]
-    private float HP;
-    [SerializeField]
-    private int max_HP;
+    private Image hp_bar;
 
 
-    public void Start()
-    {
+    public void Start(){
          Event_Manager.PlayerUpdateInterface += UpdateInterface;
     }
-    public void UpdateInterface()
-    {
-        switch (Pkm_Owner)
+
+    public void UpdateInterface(){
+        switch (pkm_owner)
         {
-            case PKM_Owner.Player:
+            case pkm_owner.Player:
                 if (Battle_Manager.instance.Trainer_Manager.GetCurPokemon() != null)
                 {
-                    Name.text = Battle_Manager.instance.Trainer_Manager.GetCurPokemon().Name;
-                    HP_bar.fillAmount = (Battle_Manager.instance.Trainer_Manager.GetCurPokemon().Health * 0.01f);
-                    max_HP = 100;
+                    name.text = Battle_Manager.instance.Trainer_Manager.GetCurPokemon().Name;
+                    hp_bar.fillAmount = (Battle_Manager.instance.Trainer_Manager.GetCurPokemon().Health * 0.01f);
                 }
                 break;
-            case PKM_Owner.Enemy:
+            case pkm_owner.Enemy:
                 if (Battle_Manager.instance.Enemy_Manager.GetCurPokemon() != null)
                 {
-                    Name.text = Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Name;
-                    HP_bar.fillAmount = (Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Health * 0.01f);
+                    name.text = Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Name;
+                    hp_bar.fillAmount = (Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Health * 0.01f);
                 }
                 break;
 

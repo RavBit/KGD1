@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using DG.Tweening;
 public class Message_Center : MonoBehaviour {
     [Header("Text Screen")]
     [SerializeField]
@@ -14,7 +14,7 @@ public class Message_Center : MonoBehaviour {
     }
 
     private void SetText(string text) {
-        Main_Text.text = text;
+        Main_Text.DOText(text, 2, true, ScrambleMode.All);
     }
 
     void ResetText() {

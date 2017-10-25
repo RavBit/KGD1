@@ -15,51 +15,51 @@ public enum Turn_Menu
 }
 public class Battle_Menu_Manager : MonoBehaviour
 {
-    public GameObject Battle_Menu;
-    public Image Cur_Pokemon_Back;
-    public Image Enemy_Pokemon_Front;
-    public GameObject Interface_Enemy;
-    public GameObject Interface_Trainer;
-    public GameObject Game_Over;
+    public Image cur_pokemon_back;
+    public Image enemy_pokemon_front;
+    public GameObject interface_enemy;
+    public GameObject interface_trainer;
+    public GameObject game_over;
     public Turn_Menu Turn_Menu = Turn_Menu.None; 
-    void Awake()
-    {
+    void Awake() {
+        //Set the events when the manager awakes.
         Event_Manager.SwitchTurnState += SetTurnMenu;
         Event_Manager.PokemonKill += RemovePanels;
         Event_Manager.PokemonKill += Die;
         Event_Manager.SetNewPokemon += NewPokemon;
         Event_Manager.SetNewPokemon += SetPanels;
+
+        //Set the first sprites after 1 second
         Invoke("InitSprites", 1);
     }
 
-    public static void FlashSprite(PKM_Owner owner) {
+    public static void FlashSprite(pkm_owner owner) {
         switch(owner) {
-            case PKM_Owner.Enemy:
+            case pkm_owner.Enemy:
 
                 break;
-            case PKM_Owner.Player:
+            case pkm_owner.Player:
                 break;
         }
     }
 
-    public void InitSprites()
-    {
+    public void InitSprites(){
         Event_Manager.Update_PlayerInterface();
-        Enemy_Pokemon_Front.sprite = Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Sprite;
-        Cur_Pokemon_Back.sprite = Battle_Manager.instance.Trainer_Manager.GetCurPokemon().BackSprite;
+        enemy_pokemon_front.sprite = Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Sprite;
+        cur_pokemon_back.sprite = Battle_Manager.instance.Trainer_Manager.GetCurPokemon().BackSprite;
     }
-    void SetTurnMenu(Turn_Menu cur_menu)
-    {
+
+    void SetTurnMenu(Turn_Menu cur_menu){
         Turn_Menu = cur_menu;
         switch (Turn_Menu)
         {
             case Turn_Menu.Attack:
-                RemovePanels(PKM_Owner.Player);
+                RemovePanels(pkm_owner.Player);
                 SetPanels();
                 Battle_Manager.instance.ChangeState(Battle_State.Gamble);
                 break;
             case Turn_Menu.Pokemon:
-                Battle_Manager.instance.SwitchPokemon(PKM_Owner.Player);
+                Battle_Manager.instance.SwitchPokemon(pkm_owner.Player);
                 Battle_Manager.instance.ChangeState(Battle_State.Fight);
                 Battle_Manager.instance.StartAttack(0, "");
                 break;
@@ -79,38 +79,36 @@ public class Battle_Menu_Manager : MonoBehaviour
             SM_Panels.instance.AddPanel(panel);
         }
     }
-    public void RemovePanels(PKM_Owner owner)
-    {
+
+    public void RemovePanels(pkm_owner owner) {
         foreach (PKM_Attack attack in Battle_Manager.instance.Trainer_Manager.GetCurPokemon().attacks.ToList())
             foreach (SM_PanelData panel in SM_Panels.instance.paneldata.ToList())
                 if (attack.name == panel.name)
                     SM_Panels.instance.RemovePanel(panel);
     }
     
-    void Die(PKM_Owner owner)
-    {
+    void Die(pkm_owner owner) {
         switch(owner)
         {
-            case PKM_Owner.Player:
-                Cur_Pokemon_Back.DOFade(0, 2);
-                Interface_Trainer.SetActive(false);
+            case pkm_owner.Player:
+                cur_pokemon_back.DOFade(0, 2);
+                interface_trainer.SetActive(false);
                 break;
-            case PKM_Owner.Enemy:
-                Enemy_Pokemon_Front.DOFade(0, 2);
-                Interface_Enemy.SetActive(false);
+            case pkm_owner.Enemy:
+                enemy_pokemon_front.DOFade(0, 2);
+                interface_enemy.SetActive(false);
                 break;
         }
     }
-    void NewPokemon()
-    {
-        Cur_Pokemon_Back.DOFade(1, 2);
-        Enemy_Pokemon_Front.DOFade(1, 2);
-        Interface_Trainer.SetActive(true);
-        Interface_Enemy.SetActive(true);
+
+    void NewPokemon() {
+        cur_pokemon_back.DOFade(1, 2);
+        enemy_pokemon_front.DOFade(1, 2);
+        interface_trainer.SetActive(true);
+        interface_enemy.SetActive(true);
 
     }
-    public void Turnswitch(string _name)
-    {
+    public void Turnswitch(string _name) {
         Turn_Menu tm = (Turn_Menu)System.Enum.Parse(typeof(Turn_Menu), _name);
         SetTurnMenu(tm);
     }

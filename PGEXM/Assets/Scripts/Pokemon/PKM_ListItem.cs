@@ -17,7 +17,7 @@ public class PKM_ListItem : MonoBehaviour {
     public void Init(int i, Sprite img, string name) {
         PokeImage.sprite = img;
         Name.text = name;
-        HP.text = "HP: " + Pokemon_Collections.instance.Pokemon[i].Health + " / " + Pokemon_Collections.instance.Pokemon[i].Health;
+        HP.text =  "HP: " + Pokemon_Collections.instance.Pokemon[i].Health;
         for (int x = 0; x < Pokemon_Collections.instance.Pokemon[i].attacks.Count; x++) {
             GameObject go = Instantiate(AttackItem, Vector3.zero, transform.rotation);
             go.transform.parent = Attack.transform;
@@ -28,12 +28,12 @@ public class PKM_ListItem : MonoBehaviour {
         Moves.gameObject.SetActive(!Moves.gameObject.activeInHierarchy);
     }
     public void Equip() {
-        switch(Pokemon_Collections.instance.Pokemon[index].PKM_Owner) {
-            case PKM_Owner.Player:
-                Pokemon_Collections.instance.Pokemon[index].PKM_Owner = PKM_Owner.None;
+        switch(Pokemon_Collections.instance.Pokemon[index].pkm_owner) {
+            case pkm_owner.Player:
+                Pokemon_Collections.instance.Pokemon[index].pkm_owner = pkm_owner.None;
                 break;
-            case PKM_Owner.None:
-                Pokemon_Collections.instance.Pokemon[index].PKM_Owner = PKM_Owner.Player;
+            case pkm_owner.None:
+                Pokemon_Collections.instance.Pokemon[index].pkm_owner = pkm_owner.Player;
                 break;
         }
 

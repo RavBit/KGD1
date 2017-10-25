@@ -37,7 +37,7 @@ public class Event_Manager : MonoBehaviour {
     public static event PokemonAlive SetNewPokemon;
 
     //Let the pokemon die in the field
-    public delegate void KillPokemon(PKM_Owner owner);
+    public delegate void KillPokemon(pkm_owner owner);
     public static event KillPokemon PokemonKill;
 
     public static void Start_Gamble(bool toggle) {
@@ -59,7 +59,7 @@ public class Event_Manager : MonoBehaviour {
     public static void Set_MessageText(string text) {
         SetMessageText(text);
     }
-    public static void Pokemon_Kill(PKM_Owner owner)
+    public static void Pokemon_Kill(pkm_owner owner)
     {
         PokemonKill(owner);
     }
@@ -75,13 +75,13 @@ public class Event_Manager : MonoBehaviour {
     {
         PlayerUpdateInterface();
     }
-    public static PKM_Owner AliveCheck()
+    public static pkm_owner AliveCheck()
     {
         if (Battle_Manager.instance.Trainer_Manager.GetCurPokemon() == null)
-            return PKM_Owner.Player;
+            return pkm_owner.Player;
         if(Battle_Manager.instance.Enemy_Manager.GetCurPokemon() == null)
-            return PKM_Owner.Enemy;
+            return pkm_owner.Enemy;
         else
-           return PKM_Owner.None;
+           return pkm_owner.None;
     }
 }

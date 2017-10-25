@@ -8,11 +8,11 @@ public class Menu_Manager : MonoBehaviour {
     public void RestartGame()
     {
         PlayerPrefs.SetInt("AmountOfPokemon", PlayerPrefs.GetInt("AmountOfPokemon") + 1);
-        Destroy(Pokemon_Collections.instance);
+        Pokemon_Collections.instance.DestroyObject();
         Destroy(SM_Panels.instance);
         Destroy(Battle_Manager.instance);
         Time.timeScale = 1;
-        SceneManager.LoadScene("pokemon_select");
+        SceneManager.LoadScene("pokemon_select",LoadSceneMode.Single);
     }
     public void QuitGame()
     {

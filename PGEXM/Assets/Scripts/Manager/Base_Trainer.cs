@@ -8,7 +8,7 @@ public class Base_Trainer :  IBase_Item{
     [SerializeField]
     protected int amount_pokemon = 3;
     [SerializeField]
-    protected PKM_Owner Pkm_Owner;
+    protected pkm_owner pkm_owner;
     [SerializeField]
     protected List<Pokemon> Pokemon;
     [SerializeField]
@@ -22,18 +22,18 @@ public class Base_Trainer :  IBase_Item{
     {
         Pokemon = Pokemon_Collections.instance.Pokemon.ToList();
         int amount = 0;
-        while (amount < amount_pokemon && Pkm_Owner == PKM_Owner.Enemy)
+        while (amount < amount_pokemon && pkm_owner == pkm_owner.Enemy)
         {
             System.Random rand = new System.Random();
             int r = rand.Next(Pokemon.Count);
-            if (Pokemon[r].PKM_Owner == PKM_Owner.None)
+            if (Pokemon[r].pkm_owner == pkm_owner.None)
             {
-                Pokemon[r].PKM_Owner = Pkm_Owner;
+                Pokemon[r].pkm_owner = pkm_owner;
                 amount++;
             }
         }
         foreach (Pokemon pokemon in Pokemon.ToList())
-            if (pokemon.PKM_Owner != Pkm_Owner)
+            if (pokemon.pkm_owner != pkm_owner)
                 Pokemon.Remove(pokemon);
         InitCurPokemon(0);
     }
@@ -45,7 +45,7 @@ public class Base_Trainer :  IBase_Item{
     {
         foreach (Pokemon pokemon in Pokemon)
         {
-            pokemon.PKM_Owner = Pkm_Owner;
+            pokemon.pkm_owner = pkm_owner;
         }
     }
     public void AdjustHealth(int modifier)
@@ -61,7 +61,7 @@ public class Base_Trainer :  IBase_Item{
     }
     void Die()
     {
-        Event_Manager.Pokemon_Kill(Pkm_Owner);
+        Event_Manager.Pokemon_Kill(pkm_owner);
         CurPokemon = null;
     }
     public Pokemon GetCurPokemon()
