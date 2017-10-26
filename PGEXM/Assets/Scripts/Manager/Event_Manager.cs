@@ -26,7 +26,7 @@ public class Event_Manager : MonoBehaviour {
 
     //Reset Slot Machine and restart
     public delegate void ResetSlotMachine();
-    public static event ResetSlotMachine ResetSM; 
+    public static event ResetSlotMachine ResetSM;
     //Set the text in the Message Center
     public delegate void SetTextMessage(string text);
     public static event SetTextMessage SetMessageText;
@@ -59,29 +59,26 @@ public class Event_Manager : MonoBehaviour {
     public static void Set_MessageText(string text) {
         SetMessageText(text);
     }
-    public static void Pokemon_Kill(pkm_owner owner)
-    {
+    public static void Pokemon_Kill(pkm_owner owner) {
         PokemonKill(owner);
     }
-    public static void Set_NewPokemon()
-    {
+    public static void Set_NewPokemon() {
         SetNewPokemon();
     }
-    public static void Pokemon_AliveCheck()
-    {
+    public static void Pokemon_AliveCheck() {
         PokemonAliveCheck();
     }
-    public static void Update_PlayerInterface()
-    {
+    public static void Update_PlayerInterface() {
         PlayerUpdateInterface();
     }
-    public static pkm_owner AliveCheck()
-    {
-        if (Battle_Manager.instance.Trainer_Manager.GetCurPokemon() == null)
+
+    //Checking if the player is alive and returning if a player his current pokemon is killed
+    public static pkm_owner AliveCheck() {
+        if (Battle_Manager.instance.trainer_Manager.GetCurPokemon() == null)
             return pkm_owner.Player;
-        if(Battle_Manager.instance.Enemy_Manager.GetCurPokemon() == null)
+        if (Battle_Manager.instance.enemy_Manager.GetCurPokemon() == null)
             return pkm_owner.Enemy;
         else
-           return pkm_owner.None;
+            return pkm_owner.None;
     }
 }

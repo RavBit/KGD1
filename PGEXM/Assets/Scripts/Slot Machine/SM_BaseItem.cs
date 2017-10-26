@@ -10,47 +10,36 @@ public class SM_BaseItem : MonoBehaviour, SM_Items {
     [SerializeField]
     public bool stopping = false;
     [SerializeField]
-    public static float _speed;
+    public static float speed;
     [SerializeField]
     public SM_PanelData curPanel;
     public Image baseImage;
-    void Start() {
+    private void Start() {
         Event_Manager.ResetSM += Init;
         Init();
     }
+    //Init the panels and move them with a speed of 10
     public void Init() {
         stopping = false;
-        _speed = 10;
+        speed = 10;
         baseImage = GetComponent<Image>();
     }
 
+    //Check if they are stopping or not
     public void FixedUpdate() {
-        if(!stopping)
-            Move(Vector3.down * _speed);
+        if (!stopping)
+            Move(Vector3.down * speed);
     }
+    //Move the players and move them up if they reach an certain y-pos.  also changing the panel his image and type if they have to
     public void Move(Vector3 speed) {
         baseImage.rectTransform.Translate(speed);
-        if (baseImage.rectTransform.localPosition.y <= -300)
-        {
-            if (!stopping)
-            {
+        if (baseImage.rectTransform.localPosition.y <= -300) {
+            if (!stopping) {
                 curPanel = SM_Panels.instance.PanelSpawn(curPanel, GetComponentInParent<SM_Wheel>());
                 baseImage.sprite = curPanel.image;
             }
             baseImage.transform.localPosition = new Vector3(0, 300, 0);
         }
-    }
-    public void Stop() {
-
-        StartCoroutine("StopWheel", 10);
-    }
-    IEnumerator StopWheel(float time) {
-
-        while(_speed > 0) {
-            _speed = _speed - 1;
-            yield return new WaitForSeconds(0.1f);
-        }
-        Debug.Log("STOPPED");
     }
 }
 

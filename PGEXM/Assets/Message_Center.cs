@@ -12,11 +12,13 @@ public class Message_Center : MonoBehaviour {
         ResetText();
         Event_Manager.SetMessageText += SetText;
     }
-
+    
+    //Set the text in the textfield
     private void SetText(string text) {
         Main_Text.DOText(text, 2, true, ScrambleMode.All);
     }
 
+    //Clear the text in the textfield
     void ResetText() {
         Main_Text.text = "";
     }

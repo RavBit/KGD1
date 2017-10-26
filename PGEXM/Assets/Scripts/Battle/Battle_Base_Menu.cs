@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class Battle_Base_Menu : MonoBehaviour {
     public Turn_Menu TurnMenu;
-    public GameObject Button;
-    public GameObject Parent;
-    void Awake()
-    {
+    public GameObject button;
+    public GameObject parent;
+    void Awake() {
         LoadInObjects();
     }
 
-    void LoadInObjects()
-    {
-        switch (TurnMenu)
-        {
+    //Load in the Objects when you press attack or pokemon
+    void LoadInObjects() {
+        switch (TurnMenu) {
             case Turn_Menu.Attack:
-                Debug.Log("Attack");
                 Attack();
                 break;
             case Turn_Menu.Pokemon:
@@ -24,11 +21,10 @@ public class Battle_Base_Menu : MonoBehaviour {
         }
     }
 
-    void Attack()
-    {
-        for (int i = 0; i < Pokemon_Collections.instance.Pokemon[0].attacks.Count; i++)
-        {
-            GameObject Go = Instantiate(Button, Parent.transform);
+    //When the Turn-Menu jumps on 'Attack' the player or enemy attacks
+    void Attack() {
+        for (int i = 0; i < Pokemon_Collections.instance.Pokemon[0].attacks.Count; i++) {
+            GameObject Go = Instantiate(button, parent.transform);
             Go.GetComponentInChildren<UnityEngine.UI.Text>().text = Pokemon_Collections.instance.Pokemon[0].attacks[i].name;
         }
     }

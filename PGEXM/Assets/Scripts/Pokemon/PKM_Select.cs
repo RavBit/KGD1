@@ -19,7 +19,7 @@ public class PKM_Select : MonoBehaviour {
     private void Start() {
         Init();
     }
-
+    //Init the Pokemon_Databank and the owners from it
     public void Init() {
         for (int i = 0; i < 3; i++) {
             foreach (Transform child in List[i].transform) {
@@ -30,16 +30,17 @@ public class PKM_Select : MonoBehaviour {
             GameObject go = Instantiate(ListItem, Vector3.zero, transform.rotation);
             go.GetComponent<PKM_ListItem>().index = i;
             go.transform.parent = List[(int)Pokemon_Collections.instance.Pokemon[i].pkm_owner].transform;
-            go.GetComponent<PKM_ListItem>().Init(i,Pokemon_Collections.instance.Pokemon[i].Sprite, Pokemon_Collections.instance.Pokemon[i].Name);
+            go.GetComponent<PKM_ListItem>().Init(i, Pokemon_Collections.instance.Pokemon[i].sprite, Pokemon_Collections.instance.Pokemon[i].name);
         }
     }
+    //Starting the game when you press the button. Checking if the player did not assign 0 pokemon
     public void StartGame() {
         int count = 0;
-        foreach(Pokemon pkm in Pokemon_Collections.instance.Pokemon) {
+        foreach (Pokemon pkm in Pokemon_Collections.instance.Pokemon) {
             if (pkm.pkm_owner == pkm_owner.Player)
                 count++;
         }
-        if (count == 0)
+        if (count == 0 || count > 3)
             return;
         SceneManager.LoadScene("battle");
     }

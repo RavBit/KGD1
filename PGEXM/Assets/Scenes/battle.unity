@@ -744,8 +744,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurnMenu: 0
-  Button: {fileID: 1256995947174914, guid: 9abbf56c64be7d84e8970c189c2ba933, type: 2}
-  Parent: {fileID: 405346464}
+  button: {fileID: 0}
+  parent: {fileID: 0}
 --- !u!1 &409106252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,6 +1522,11 @@ Prefab:
       propertyPath: paneldata.Array.data[3].strength
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114143757057011930, guid: be83102348341374190ba7fd1ab2fe05,
+        type: 2}
+      propertyPath: baseObject
+      value: 
+      objectReference: {fileID: 603204209}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: be83102348341374190ba7fd1ab2fe05, type: 2}
   m_IsPrefabParent: 0
@@ -2633,35 +2638,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910c457011bb43343996f4e2dee97bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy_Manager:
+  enemy_Manager:
     amount_pokemon: 3
     pkm_owner: 2
-    Pokemon: []
-    CurPokemon:
-      Name: 
+    pokemon: []
+    curPokemon:
+      name: 
       Type: 0
-      Health: 0
-      Sprite: {fileID: 0}
-      BackSprite: {fileID: 0}
+      health: 100
+      sprite: {fileID: 0}
+      backSprite: {fileID: 0}
       attacks: []
       pkm_owner: 1
-  Trainer_Manager:
-    amount_pokemon: 3
+  trainer_Manager:
+    amount_pokemon: 4
     pkm_owner: 0
-    Pokemon: []
-    CurPokemon:
-      Name: 
+    pokemon: []
+    curPokemon:
+      name: 
       Type: 0
-      Health: 0
-      Sprite: {fileID: 0}
-      BackSprite: {fileID: 0}
+      health: 100
+      sprite: {fileID: 0}
+      backSprite: {fileID: 0}
       attacks: []
       pkm_owner: 1
-  BMM: {fileID: 645824590}
+  bMM: {fileID: 645824590}
   _currentstate: 0
   Turn_Menu: {fileID: 18906714}
   Attack_Sound: {fileID: 1274982896}
-  PokemonDied: 0
 --- !u!4 &938904413
 Transform:
   m_ObjectHideFlags: 0
@@ -2831,7 +2835,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &973517825
 RectTransform:
   m_ObjectHideFlags: 0

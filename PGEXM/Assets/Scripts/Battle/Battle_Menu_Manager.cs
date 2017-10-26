@@ -5,22 +5,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public enum Turn_Menu
-{
+public enum Turn_Menu {
     None,
     Attack,
     Pokemon,
     Item,
     Give_Up
 }
-public class Battle_Menu_Manager : MonoBehaviour
-{
+public class Battle_Menu_Manager : MonoBehaviour {
     public Image cur_pokemon_back;
     public Image enemy_pokemon_front;
     public GameObject interface_enemy;
     public GameObject interface_trainer;
     public GameObject game_over;
-    public Turn_Menu Turn_Menu = Turn_Menu.None; 
+    public Turn_Menu Turn_Menu = Turn_Menu.None;
     void Awake() {
         //Set the events when the manager awakes.
         Event_Manager.SwitchTurnState += SetTurnMenu;
@@ -32,9 +30,9 @@ public class Battle_Menu_Manager : MonoBehaviour
         //Set the first sprites after 1 second
         Invoke("InitSprites", 1);
     }
-
+    //Flash the sprites of the pokemon (checking their owner)
     public static void FlashSprite(pkm_owner owner) {
-        switch(owner) {
+        switch (owner) {
             case pkm_owner.Enemy:
 
                 break;
@@ -43,16 +41,17 @@ public class Battle_Menu_Manager : MonoBehaviour
         }
     }
 
-    public void InitSprites(){
+    //Instantiates the sprite
+    public void InitSprites() {
         Event_Manager.Update_PlayerInterface();
-        enemy_pokemon_front.sprite = Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Sprite;
-        cur_pokemon_back.sprite = Battle_Manager.instance.Trainer_Manager.GetCurPokemon().BackSprite;
+        enemy_pokemon_front.sprite = Battle_Manager.instance.enemy_Manager.GetCurPokemon().sprite;
+        cur_pokemon_back.sprite = Battle_Manager.instance.trainer_Manager.GetCurPokemon().backSprite;
     }
 
-    void SetTurnMenu(Turn_Menu cur_menu){
+    //Set the turn menu to the current turn and what the actions of the player are. Disabling/Enabling UI elements
+    void SetTurnMenu(Turn_Menu cur_menu) {
         Turn_Menu = cur_menu;
-        switch (Turn_Menu)
-        {
+        switch (Turn_Menu) {
             case Turn_Menu.Attack:
                 RemovePanels(pkm_owner.Player);
                 SetPanels();
@@ -67,10 +66,11 @@ public class Battle_Menu_Manager : MonoBehaviour
 
     }
 
+    //Set the panels of the Slot machine correctly when spawning a new pokemon
     public void SetPanels() {
         InitSprites();
         Event_Manager.Reset_SM();
-        foreach (PKM_Attack attack in Battle_Manager.instance.Trainer_Manager.GetCurPokemon().attacks) {
+        foreach (PKM_Attack attack in Battle_Manager.instance.trainer_Manager.GetCurPokemon().attacks) {
             SM_PanelData panel = new SM_PanelData();
             panel.name = attack.name;
             panel.spawnrate = ((attack.strength - 100) * -1);
@@ -79,17 +79,17 @@ public class Battle_Menu_Manager : MonoBehaviour
             SM_Panels.instance.AddPanel(panel);
         }
     }
-
+    //Removing the panels of the old pokemon or panels that are instantiated incorrectly
     public void RemovePanels(pkm_owner owner) {
-        foreach (PKM_Attack attack in Battle_Manager.instance.Trainer_Manager.GetCurPokemon().attacks.ToList())
+        foreach (PKM_Attack attack in Battle_Manager.instance.trainer_Manager.GetCurPokemon().attacks.ToList())
             foreach (SM_PanelData panel in SM_Panels.instance.paneldata.ToList())
                 if (attack.name == panel.name)
                     SM_Panels.instance.RemovePanel(panel);
     }
-    
+
+    //Trigger and removing the UI when the pokemon are dying (also checking if it kills the correct sprite (enemy/player))
     void Die(pkm_owner owner) {
-        switch(owner)
-        {
+        switch (owner) {
             case pkm_owner.Player:
                 cur_pokemon_back.DOFade(0, 2);
                 interface_trainer.SetActive(false);
@@ -101,6 +101,7 @@ public class Battle_Menu_Manager : MonoBehaviour
         }
     }
 
+    //Setting in the new pokemon and fading it to be visible again
     void NewPokemon() {
         cur_pokemon_back.DOFade(1, 2);
         enemy_pokemon_front.DOFade(1, 2);
@@ -108,6 +109,7 @@ public class Battle_Menu_Manager : MonoBehaviour
         interface_enemy.SetActive(true);
 
     }
+    //A function called to call a function with an enumrator. This was not possible in MonoBehaviour
     public void Turnswitch(string _name) {
         Turn_Menu tm = (Turn_Menu)System.Enum.Parse(typeof(Turn_Menu), _name);
         SetTurnMenu(tm);

@@ -13,6 +13,7 @@ public class Pokemon_Collections : MonoBehaviour {
             instance = this;
         DontDestroyOnLoad(transform.gameObject);
     }
+    //Destroy this object when going back to the pokemon_select scene
     public void DestroyObject() {
         Destroy(transform.gameObject);
     }

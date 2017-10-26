@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f7819e31acec8094cbc04bb7fe9409b8
-timeCreated: 1508880280
+timeCreated: 1509043767
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -24,6 +24,14 @@ TextureImporter:
     21300034: Game Boy GBC - Pokemon Pinball - Pokedex_17
     21300036: Game Boy GBC - Pokemon Pinball - Pokedex_18
     21300038: Game Boy GBC - Pokemon Pinball - Pokedex_19
+    21300040: Game Boy GBC - Pokemon Pinball - Pokedex_20
+    21300042: Game Boy GBC - Pokemon Pinball - Pokedex_21
+    21300044: Game Boy GBC - Pokemon Pinball - Pokedex_22
+    21300046: Game Boy GBC - Pokemon Pinball - Pokedex_23
+    21300048: Game Boy GBC - Pokemon Pinball - Pokedex_24
+    21300050: Game Boy GBC - Pokemon Pinball - Pokedex_25
+    21300052: Game Boy GBC - Pokemon Pinball - Pokedex_26
+    21300054: Game Boy GBC - Pokemon Pinball - Pokedex_27
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -378,6 +386,118 @@ TextureImporter:
         serializedVersion: 2
         x: 55
         y: 1383
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Game Boy GBC - Pokemon Pinball - Pokedex_20
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1286
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Game Boy GBC - Pokemon Pinball - Pokedex_21
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1281
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Game Boy GBC - Pokemon Pinball - Pokedex_22
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1247
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Game Boy GBC - Pokemon Pinball - Pokedex_23
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1213
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Game Boy GBC - Pokemon Pinball - Pokedex_24
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1281
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Game Boy GBC - Pokemon Pinball - Pokedex_25
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1383
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Game Boy GBC - Pokemon Pinball - Pokedex_26
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1349
+        width: 48
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Game Boy GBC - Pokemon Pinball - Pokedex_27
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 1315
         width: 48
         height: 32
       alignment: 0

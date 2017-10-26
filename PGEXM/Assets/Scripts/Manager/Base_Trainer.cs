@@ -4,82 +4,74 @@ using UnityEngine;
 using System.Linq;
 
 
-public class Base_Trainer :  IBase_Item{
+public class Base_Trainer : IBase_Item {
     [SerializeField]
     protected int amount_pokemon = 3;
     [SerializeField]
     protected pkm_owner pkm_owner;
     [SerializeField]
-    protected List<Pokemon> Pokemon;
+    protected List<Pokemon> pokemon;
     [SerializeField]
-    protected Pokemon CurPokemon;
-    public void Start()
-    {
+    protected Pokemon curPokemon;
+    public void Start() {
         Event_Manager.LoadingDataBank += InitPokemon;
         Event_Manager.PokemonAliveCheck += CheckAlive;
     }
-    public void InitPokemon()
-    {
-        Pokemon = Pokemon_Collections.instance.Pokemon.ToList();
+    //Set the owner of the pokemon and instantiate it
+    public void InitPokemon() {
+        pokemon = Pokemon_Collections.instance.Pokemon.ToList();
         int amount = 0;
-        while (amount < amount_pokemon && pkm_owner == pkm_owner.Enemy)
-        {
+        while (amount < amount_pokemon && pkm_owner == pkm_owner.Enemy) {
             System.Random rand = new System.Random();
-            int r = rand.Next(Pokemon.Count);
-            if (Pokemon[r].pkm_owner == pkm_owner.None)
-            {
-                Pokemon[r].pkm_owner = pkm_owner;
+            int r = rand.Next(pokemon.Count);
+            if (pokemon[r].pkm_owner == pkm_owner.None) {
+                pokemon[r].pkm_owner = pkm_owner;
                 amount++;
             }
         }
-        foreach (Pokemon pokemon in Pokemon.ToList())
-            if (pokemon.pkm_owner != pkm_owner)
-                Pokemon.Remove(pokemon);
+        foreach (Pokemon _pokemon in pokemon.ToList())
+            if (_pokemon.pkm_owner != pkm_owner)
+                pokemon.Remove(_pokemon);
         InitCurPokemon(0);
     }
-    public void InitCurPokemon(int n)
-    {
-        CurPokemon = Pokemon[n];
+    //Setting the current pokemon
+    public void InitCurPokemon(int n) {
+        curPokemon = pokemon[n];
     }
-    public void SetOwner()
-    {
-        foreach (Pokemon pokemon in Pokemon)
-        {
-            pokemon.pkm_owner = pkm_owner;
-        }
+    //Set the owner of the current pokemon
+    public void SetOwner() {
+        foreach (Pokemon _pokemon in pokemon)
+            _pokemon.pkm_owner = pkm_owner;
     }
-    public void AdjustHealth(int modifier)
-    {
-        CurPokemon.Health = CurPokemon.Health + modifier;
+    //Adjusting the health of the pokemon
+    public void AdjustHealth(int modifier) {
+        curPokemon.health = curPokemon.health + modifier;
     }
-
-    protected void CheckAlive()
-    {
-        Debug.Log("CHECKING ALIVE");
-        if (CurPokemon.Health <= 0)
+    //Checking if the pokemon it's health is above 0
+    protected void CheckAlive() {
+        if (curPokemon.health <= 0)
             Die();
     }
-    void Die()
-    {
+    //Function that will trigger an event to kill the pokemon 
+    private void Die() {
         Event_Manager.Pokemon_Kill(pkm_owner);
-        CurPokemon = null;
+        curPokemon = null;
     }
-    public Pokemon GetCurPokemon()
-    {
-        return CurPokemon;
+    //Get the current pokemon (since it's protected
+    public Pokemon GetCurPokemon() {
+        return curPokemon;
     }
-    public void SetCurPokemon(Pokemon _pkm)
-    {
-        Debug.Log("Cur pokemon set");
-        CurPokemon = _pkm;
+    //Set the current pokemon
+    public void SetCurPokemon(Pokemon _pkm) {
+        curPokemon = _pkm;
     }
-    public List<Pokemon> GetCurPokemonList()
-    {
-        return Pokemon;
+    //Get an list of the pokemon the Trainer/Enemy has at the moment
+    public List<Pokemon> GetCurPokemonList() {
+        return pokemon;
     }
 }
 
-public interface IBase_Item
-{
+//Interface with an AdjustHealth that has to be added to the Base_Trainer class
+public interface IBase_Item {
     void AdjustHealth(int modifier);
 }

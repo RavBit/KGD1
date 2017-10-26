@@ -10,25 +10,23 @@ public class PKM_Interface : MonoBehaviour {
     private Image hp_bar;
 
 
-    public void Start(){
-         Event_Manager.PlayerUpdateInterface += UpdateInterface;
+    public void Start() {
+        Event_Manager.PlayerUpdateInterface += UpdateInterface;
     }
 
-    public void UpdateInterface(){
-        switch (pkm_owner)
-        {
+    //Update the interface of the enemy and the player. This will Update once called the event
+    public void UpdateInterface() {
+        switch (pkm_owner) {
             case pkm_owner.Player:
-                if (Battle_Manager.instance.Trainer_Manager.GetCurPokemon() != null)
-                {
-                    name.text = Battle_Manager.instance.Trainer_Manager.GetCurPokemon().Name;
-                    hp_bar.fillAmount = (Battle_Manager.instance.Trainer_Manager.GetCurPokemon().Health * 0.01f);
+                if (Battle_Manager.instance.trainer_Manager.GetCurPokemon() != null) {
+                    name.text = Battle_Manager.instance.trainer_Manager.GetCurPokemon().name;
+                    hp_bar.fillAmount = (Battle_Manager.instance.trainer_Manager.GetCurPokemon().health * 0.01f);
                 }
                 break;
             case pkm_owner.Enemy:
-                if (Battle_Manager.instance.Enemy_Manager.GetCurPokemon() != null)
-                {
-                    name.text = Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Name;
-                    hp_bar.fillAmount = (Battle_Manager.instance.Enemy_Manager.GetCurPokemon().Health * 0.01f);
+                if (Battle_Manager.instance.enemy_Manager.GetCurPokemon() != null) {
+                    name.text = Battle_Manager.instance.enemy_Manager.GetCurPokemon().name;
+                    hp_bar.fillAmount = (Battle_Manager.instance.enemy_Manager.GetCurPokemon().health * 0.01f);
                 }
                 break;
 
